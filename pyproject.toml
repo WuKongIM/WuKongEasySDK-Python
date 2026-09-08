@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wukong-easy-sdk"
+version = "0.1.0"
+description = "Async Python WebSocket JSON-RPC client for WuKongIM"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "ISC"
+authors = [{name = "WuKongIM"}]
+dependencies = ["websockets>=15.0.1,<18"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Framework :: AsyncIO",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/WuKongIM/WuKongEasySDK-Python"
+Issues = "https://github.com/WuKongIM/WuKongEasySDK-Python/issues"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "ruff>=0.12,<1", "mypy>=1.15,<2", "build>=1.2,<2", "trustme>=1.2,<2"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-m 'not integration'"
+markers = ["integration: local socket, TLS, or real product tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
+
+[tool.ruff.lint.per-file-ignores]
+# The explicit product harness writes a few small local setup files before any SDK traffic.
+"tests/product.py" = ["ASYNC240"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
