@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: WuKongIM/WuKongIM
-          ref: e4148ca609288ce6faeaf7d264e281f44e1b9e95
+          ref: 2a295e0d9881ef5356728a85d56b052c4b0d9c86
           path: product
           persist-credentials: false
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

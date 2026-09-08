@@ -29,7 +29,7 @@ AGENTS, FLOW, CONTEXT or ADR files.
 
 ## Reproduce
 
-Build server `e4148ca609288ce6faeaf7d264e281f44e1b9e95`
+Build server `2a295e0d9881ef5356728a85d56b052c4b0d9c86`
 and JS `9c03c98c725982fac224cd1d3b52456eae983975`
 using the clean-clone steps in `CLUSTER_ACCEPTANCE.md`. The server pin includes
 the cross-ingress member-cache fix; the older person-soak server is insufficient

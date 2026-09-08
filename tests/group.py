@@ -30,7 +30,7 @@ from wukong_easy_sdk import WKIMChannelType, WKIMError
 USERS = ["group-alice", "group-bob", "group-carol", "group-dave"]
 MAIN = "python-group-main"
 ISOLATED = "python-group-isolated"
-SERVER_REVISION = "e4148ca609288ce6faeaf7d264e281f44e1b9e95"
+SERVER_REVISION = "2a295e0d9881ef5356728a85d56b052c4b0d9c86"
 
 
 async def mutate(cluster, path, body):
