@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add independent installed-package three-node WSS acceptance for Python/JS
+  messaging, transport/ACK loss, node restart, Token rotation and bounded resource
+  observations, with a separate CI smoke and manual 30/60-minute workflow.
+
 ## 0.1.0 - 2026-09-08
 
 ### Added
