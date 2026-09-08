@@ -1,0 +1,1289 @@
+{
+  "status": "failed",
+  "started_at": "2026-09-08T09:40:55.067851+00:00",
+  "server_revision": "2a295e0d9881ef5356728a85d56b052c4b0d9c86",
+  "js_revision": "9c03c98c725982fac224cd1d3b52456eae983975",
+  "python_sdk_version": "0.1.0",
+  "python": "3.11.16",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "server_sha256": "32e8d29f279aa91c6ac4fef15b52cf4fd9a65e9ff5c0d27aaf73023dd6169811",
+  "provenance": {
+    "package_source": "wheel",
+    "wheel_sha256": "5ef8a2cddc2941c06f5f66174d2f8bfe8acaa6111dcf10ab53767d2ebf0b0ec9",
+    "websockets": "15.0.1",
+    "node": "v24.3.0",
+    "harness_sha256": {
+      "cluster.py": "a58e7911bc17212b1ac7bbc350da68cc96467282a1d62088207a9e449f20034d",
+      "cluster_peer.cjs": "84f58c605d6e32e23a445260757695028ffeaaec7f29c9a90af36f1a5efbea1c",
+      "product.py": "474a466949f5b361a88172fa17521cbe518f9385cb95985c629282ac566dd6a8",
+      "tests/group.py": "b22f2c02d503229ee422326c18f89f590936943f77e4b9d89f2b0f3c0fc8d498",
+      "examples/group_chat.py": "a25ccebee85a577bfc0fb6b6875c6653df8a06be9f5a9230f6644cd7999ac2bc"
+    }
+  },
+  "phases": [],
+  "exclusion_observation_ms": 1000,
+  "harness_revision": "f1e4a86fcaf30c193aecf92dba214c2c51e20cb8",
+  "harness_worktree_dirty": false,
+  "initial_topology": {
+    "observed_utc": "2026-09-08T09:41:00.849468+00:00",
+    "slots": [
+      {
+        "slot_id": 1,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 2,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 3,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": false,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 4,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 5,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 6,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": false,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 7,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 8,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 9,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": false,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 10,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 11,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      },
+      {
+        "slot_id": 12,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:41:00.844499126Z"
+        }
+      }
+    ],
+    "active_tasks": 0
+  },
+  "connected_nodes": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "phase_times": {
+    "member_fanout": "2026-09-08T09:41:01.590700+00:00"
+  },
+  "missing_delivery": {
+    "phase": "member_fanout",
+    "recipient": 1,
+    "ack": {
+      "messageId": "2097258902159634432",
+      "message_id": "2097258902159634432",
+      "messageSeq": 1,
+      "message_seq": 1,
+      "reasonCode": 1,
+      "reason_code": 1
+    },
+    "received_delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "duplicates": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "errors": [
+      {},
+      0,
+      {},
+      {}
+    ],
+    "connect_counts": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "js_wire_frames": {
+      "other_with_id": 1
+    },
+    "js_wire_received": [],
+    "server_evidence": {
+      "nodes": [
+        {
+          "node": 1,
+          "process_exit": null,
+          "delivery_metrics": [
+            "wukongim_delivery_ack_bindings{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_delivery_actor_inflight_routes{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_delivery_recipient_worker_capacity{node_id=\"1\",node_name=\"node-1\"} 320",
+            "wukongim_delivery_recipient_worker_inflight{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"canceled\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"error\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"ok\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"panic\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"retry_exhausted\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"timeout\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"1\",node_name=\"node-1\",result=\"unknown\"} 0",
+            "wukongim_delivery_recipient_worker_queue_capacity{node_id=\"1\",node_name=\"node-1\"} 1024",
+            "wukongim_delivery_recipient_worker_queue_depth{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_delivery_retry_queue_depth{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_presence_expired_routes{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_presence_expiry_due_buckets{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_presence_expiry_duration_seconds_sum{node_id=\"1\",node_name=\"node-1\",result=\"success\"} 9.808199999999999e-05",
+            "wukongim_presence_expiry_duration_seconds_count{node_id=\"1\",node_name=\"node-1\",result=\"success\"} 9",
+            "wukongim_presence_expiry_examined_routes{node_id=\"1\",node_name=\"node-1\"} 0",
+            "wukongim_presence_expiry_index_buckets{node_id=\"1\",node_name=\"node-1\"} 2",
+            "wukongim_presence_expiry_index_routes{node_id=\"1\",node_name=\"node-1\"} 2",
+            "wukongim_presence_expiry_total{node_id=\"1\",node_name=\"node-1\",result=\"success\"} 9",
+            "wukongim_presence_touch_flush_chunks{node_id=\"1\",node_name=\"node-1\"} 1",
+            "wukongim_presence_touch_flush_duration_seconds_sum{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"empty\"} 7.204799999999999e-05",
+            "wukongim_presence_touch_flush_duration_seconds_count{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"empty\"} 8",
+            "wukongim_presence_touch_flush_duration_seconds_sum{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"success\"} 2.3704e-05",
+            "wukongim_presence_touch_flush_duration_seconds_count{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"success\"} 1",
+            "wukongim_presence_touch_flush_routes{node_id=\"1\",node_name=\"node-1\",stage=\"drained\"} 2",
+            "wukongim_presence_touch_flush_routes{node_id=\"1\",node_name=\"node-1\",stage=\"requeued\"} 0",
+            "wukongim_presence_touch_flush_routes{node_id=\"1\",node_name=\"node-1\",stage=\"resolved\"} 2",
+            "wukongim_presence_touch_flush_routes{node_id=\"1\",node_name=\"node-1\",stage=\"sent\"} 2",
+            "wukongim_presence_touch_flush_target_groups{node_id=\"1\",node_name=\"node-1\"} 2",
+            "wukongim_presence_touch_flush_total{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"empty\"} 8",
+            "wukongim_presence_touch_flush_total{budget_reached=\"false\",node_id=\"1\",node_name=\"node-1\",result=\"success\"} 1"
+          ],
+          "delivery_events": [
+            {
+              "event": "raft.log",
+              "raftScope": "controller",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "logged_at": "2026-09-08 09:40:55.480"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "slotID": 5,
+              "logged_at": "2026-09-08 09:40:56.846"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "slotID": 2,
+              "logged_at": "2026-09-08 09:40:56.846"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "slotID": 8,
+              "logged_at": "2026-09-08 09:40:56.846"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "slotID": 11,
+              "logged_at": "2026-09-08 09:40:56.852"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 1,
+              "slotID": 9,
+              "logged_at": "2026-09-08 09:40:59.011"
+            }
+          ]
+        },
+        {
+          "node": 2,
+          "process_exit": null,
+          "delivery_metrics": [
+            "wukongim_delivery_ack_bindings{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_delivery_actor_inflight_routes{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_delivery_recipient_worker_capacity{node_id=\"2\",node_name=\"node-2\"} 320",
+            "wukongim_delivery_recipient_worker_inflight{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"canceled\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"error\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"ok\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"panic\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"retry_exhausted\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"timeout\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"2\",node_name=\"node-2\",result=\"unknown\"} 0",
+            "wukongim_delivery_recipient_worker_queue_capacity{node_id=\"2\",node_name=\"node-2\"} 1024",
+            "wukongim_delivery_recipient_worker_queue_depth{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_delivery_retry_queue_depth{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expired_routes{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expiry_due_buckets{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expiry_duration_seconds_sum{node_id=\"2\",node_name=\"node-2\",result=\"success\"} 0.00011692600000000003",
+            "wukongim_presence_expiry_duration_seconds_count{node_id=\"2\",node_name=\"node-2\",result=\"success\"} 9",
+            "wukongim_presence_expiry_examined_routes{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expiry_index_buckets{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expiry_index_routes{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_expiry_total{node_id=\"2\",node_name=\"node-2\",result=\"success\"} 9",
+            "wukongim_presence_touch_flush_chunks{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_touch_flush_duration_seconds_sum{budget_reached=\"false\",node_id=\"2\",node_name=\"node-2\",result=\"empty\"} 0.00011627000000000001",
+            "wukongim_presence_touch_flush_duration_seconds_count{budget_reached=\"false\",node_id=\"2\",node_name=\"node-2\",result=\"empty\"} 9",
+            "wukongim_presence_touch_flush_routes{node_id=\"2\",node_name=\"node-2\",stage=\"drained\"} 0",
+            "wukongim_presence_touch_flush_routes{node_id=\"2\",node_name=\"node-2\",stage=\"requeued\"} 0",
+            "wukongim_presence_touch_flush_routes{node_id=\"2\",node_name=\"node-2\",stage=\"resolved\"} 0",
+            "wukongim_presence_touch_flush_routes{node_id=\"2\",node_name=\"node-2\",stage=\"sent\"} 0",
+            "wukongim_presence_touch_flush_target_groups{node_id=\"2\",node_name=\"node-2\"} 0",
+            "wukongim_presence_touch_flush_total{budget_reached=\"false\",node_id=\"2\",node_name=\"node-2\",result=\"empty\"} 9"
+          ],
+          "delivery_events": [
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 1,
+              "logged_at": "2026-09-08 09:40:56.847"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 4,
+              "logged_at": "2026-09-08 09:40:56.847"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 7,
+              "logged_at": "2026-09-08 09:40:56.847"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 10,
+              "logged_at": "2026-09-08 09:40:56.854"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 3,
+              "logged_at": "2026-09-08 09:40:59.356"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 2,
+              "slotID": 6,
+              "logged_at": "2026-09-08 09:41:00.410"
+            }
+          ]
+        },
+        {
+          "node": 3,
+          "process_exit": null,
+          "delivery_metrics": [
+            "wukongim_delivery_ack_batch_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 3.204e-06",
+            "wukongim_delivery_ack_batch_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 1",
+            "wukongim_delivery_ack_batch_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 1.392e-06",
+            "wukongim_delivery_ack_batch_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 1",
+            "wukongim_delivery_ack_batch_items_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 1",
+            "wukongim_delivery_ack_batch_items_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 1",
+            "wukongim_delivery_ack_batch_rejected_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 0",
+            "wukongim_delivery_ack_batch_rejected_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 0",
+            "wukongim_delivery_ack_batch_rollback_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 0",
+            "wukongim_delivery_ack_batch_rollback_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 0",
+            "wukongim_delivery_ack_batch_shards_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 1",
+            "wukongim_delivery_ack_batch_shards_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 1",
+            "wukongim_delivery_ack_batch_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"bind\"} 1",
+            "wukongim_delivery_ack_batch_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",phase=\"finish\"} 1",
+            "wukongim_delivery_ack_bindings{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_delivery_actor_inflight_routes{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_delivery_push_rpc_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",result=\"ok\",target_node=\"3\"} 0.000180148",
+            "wukongim_delivery_push_rpc_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",result=\"ok\",target_node=\"3\"} 1",
+            "wukongim_delivery_push_rpc_routes_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\",target_node=\"3\"} 1",
+            "wukongim_delivery_push_rpc_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\",target_node=\"3\"} 1",
+            "wukongim_delivery_recipient_authority_resolve_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 5.663e-06",
+            "wukongim_delivery_recipient_authority_resolve_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 1",
+            "wukongim_delivery_recipient_authority_resolve_items_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 3",
+            "wukongim_delivery_recipient_authority_resolve_targets_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 3",
+            "wukongim_delivery_recipient_authority_resolve_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 1",
+            "wukongim_delivery_recipient_worker_admission_total{node_id=\"3\",node_name=\"node-3\",result=\"accepted\"} 1",
+            "wukongim_delivery_recipient_worker_admission_wait_seconds_sum{node_id=\"3\",node_name=\"node-3\",result=\"accepted\"} 4.017e-06",
+            "wukongim_delivery_recipient_worker_admission_wait_seconds_count{node_id=\"3\",node_name=\"node-3\",result=\"accepted\"} 1",
+            "wukongim_delivery_recipient_worker_capacity{node_id=\"3\",node_name=\"node-3\"} 320",
+            "wukongim_delivery_recipient_worker_inflight{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_delivery_recipient_worker_process_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 0.002236681",
+            "wukongim_delivery_recipient_worker_process_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 1",
+            "wukongim_delivery_recipient_worker_process_recipients_sum{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 3",
+            "wukongim_delivery_recipient_worker_process_recipients_count{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 1",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"canceled\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"error\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"ok\"} 1",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"panic\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"retry_exhausted\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"timeout\"} 0",
+            "wukongim_delivery_recipient_worker_process_total{node_id=\"3\",node_name=\"node-3\",result=\"unknown\"} 0",
+            "wukongim_delivery_recipient_worker_queue_capacity{node_id=\"3\",node_name=\"node-3\"} 1024",
+            "wukongim_delivery_recipient_worker_queue_depth{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_delivery_retry_queue_depth{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_endpoint_lookup_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"local_bulk\",stale_retry=\"false\"} 6.276e-06",
+            "wukongim_presence_endpoint_lookup_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"local_bulk\",stale_retry=\"false\"} 1",
+            "wukongim_presence_endpoint_lookup_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"remote_bulk\",stale_retry=\"false\"} 0.002680994",
+            "wukongim_presence_endpoint_lookup_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"remote_bulk\",stale_retry=\"false\"} 2",
+            "wukongim_presence_endpoint_lookup_groups_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"local_bulk\",stale_retry=\"false\"} 1",
+            "wukongim_presence_endpoint_lookup_groups_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"remote_bulk\",stale_retry=\"false\"} 2",
+            "wukongim_presence_endpoint_lookup_items_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"local_bulk\",stale_retry=\"false\"} 1",
+            "wukongim_presence_endpoint_lookup_items_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"remote_bulk\",stale_retry=\"false\"} 2",
+            "wukongim_presence_endpoint_lookup_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"local_bulk\",stale_retry=\"false\"} 1",
+            "wukongim_presence_endpoint_lookup_total{node_id=\"3\",node_name=\"node-3\",outcome=\"ok\",path=\"remote_bulk\",stale_retry=\"false\"} 2",
+            "wukongim_presence_expired_routes{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_expiry_due_buckets{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_expiry_duration_seconds_sum{node_id=\"3\",node_name=\"node-3\",result=\"success\"} 0.00010254900000000001",
+            "wukongim_presence_expiry_duration_seconds_count{node_id=\"3\",node_name=\"node-3\",result=\"success\"} 9",
+            "wukongim_presence_expiry_examined_routes{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_expiry_index_buckets{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_expiry_index_routes{node_id=\"3\",node_name=\"node-3\"} 0",
+            "wukongim_presence_expiry_total{node_id=\"3\",node_name=\"node-3\",result=\"success\"} 9",
+            "wukongim_presence_touch_flush_chunks{node_id=\"3\",node_name=\"node-3\"} 1",
+            "wukongim_presence_touch_flush_duration_seconds_sum{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"empty\"} 7.2011e-05",
+            "wukongim_presence_touch_flush_duration_seconds_count{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"empty\"} 8",
+            "wukongim_presence_touch_flush_duration_seconds_sum{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"success\"} 0.002393436",
+            "wukongim_presence_touch_flush_duration_seconds_count{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"success\"} 1",
+            "wukongim_presence_touch_flush_routes{node_id=\"3\",node_name=\"node-3\",stage=\"drained\"} 1",
+            "wukongim_presence_touch_flush_routes{node_id=\"3\",node_name=\"node-3\",stage=\"requeued\"} 0",
+            "wukongim_presence_touch_flush_routes{node_id=\"3\",node_name=\"node-3\",stage=\"resolved\"} 1",
+            "wukongim_presence_touch_flush_routes{node_id=\"3\",node_name=\"node-3\",stage=\"sent\"} 1",
+            "wukongim_presence_touch_flush_target_groups{node_id=\"3\",node_name=\"node-3\"} 1",
+            "wukongim_presence_touch_flush_total{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"empty\"} 8",
+            "wukongim_presence_touch_flush_total{budget_reached=\"false\",node_id=\"3\",node_name=\"node-3\",result=\"success\"} 1"
+          ],
+          "delivery_events": [
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 3,
+              "slotID": 12,
+              "logged_at": "2026-09-08 09:40:58.765"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 3,
+              "slotID": 9,
+              "logged_at": "2026-09-08 09:41:02.000"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 3,
+              "slotID": 3,
+              "logged_at": "2026-09-08 09:41:02.064"
+            },
+            {
+              "event": "raft.log",
+              "raftScope": "slot",
+              "raftEvent": "leader_change",
+              "nodeID": 3,
+              "slotID": 6,
+              "logged_at": "2026-09-08 09:41:07.064"
+            }
+          ]
+        }
+      ],
+      "presence": [
+        {
+          "uid": "group-alice",
+          "device_flag": 2,
+          "online": 1
+        },
+        {
+          "uid": "group-dave",
+          "device_flag": 2,
+          "online": 1
+        }
+      ],
+      "topology": {
+        "observed_utc": "2026-09-08T09:41:10.150221+00:00",
+        "slots": [
+          {
+            "slot_id": 1,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 2,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 2,
+              "preferred_leader_id": 2,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 2,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 1,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 1,
+              "preferred_leader_id": 1,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 3,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 3,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 3,
+              "preferred_leader_id": 3,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 4,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 2,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 2,
+              "preferred_leader_id": 2,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 5,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 1,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 1,
+              "preferred_leader_id": 1,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 6,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 3,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 3,
+              "preferred_leader_id": 3,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 7,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 2,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 2,
+              "preferred_leader_id": 2,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 8,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 1,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 1,
+              "preferred_leader_id": 1,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 9,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 3,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 3,
+              "preferred_leader_id": 3,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 10,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 2,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 2,
+              "preferred_leader_id": 2,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 11,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 1,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 1,
+              "preferred_leader_id": 1,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          },
+          {
+            "slot_id": 12,
+            "state": {
+              "quorum": "ready",
+              "sync": "matched",
+              "leader_match": true,
+              "leader_transfer_pending": false
+            },
+            "assignment": {
+              "desired_peers": [
+                1,
+                2,
+                3
+              ],
+              "preferred_leader_id": 3,
+              "config_epoch": 1,
+              "balance_version": 0
+            },
+            "runtime": {
+              "current_peers": [
+                1,
+                2,
+                3
+              ],
+              "current_voters": [
+                1,
+                2,
+                3
+              ],
+              "leader_id": 3,
+              "preferred_leader_id": 3,
+              "healthy_voters": 3,
+              "has_quorum": true,
+              "observed_config_epoch": 0,
+              "last_report_at": "2026-09-08T09:41:10.148998208Z"
+            }
+          }
+        ],
+        "active_tasks": 0
+      }
+    }
+  },
+  "cleanup": {
+    "owned_processes_running": 0,
+    "proxy_connections": 0,
+    "extra_asyncio_tasks": 0,
+    "js_processes_running": 0
+  },
+  "elapsed_seconds": 16.226
+}

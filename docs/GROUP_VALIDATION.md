@@ -1,11 +1,13 @@
 # Group installed-package validation — 2026-09-08
 
-Python PyPI **0.1.0** passed the group scenario with three real server processes,
+The successful attempts below use Python PyPI **0.1.0** for the group scenario with three real server processes,
 256 hash slots, 12 physical Slots, three replicas, private-CA WSS and Token
 validation. Three Python clients and one actual JS client authenticate on nodes
 `[1, 2, 3, 1]`. Two groups and 13 phases match 16 group deliveries. The interactive
 CLI separately sends to three members, receives a reply, displays rejection code
-3, and exits on `/quit`. SDK runtime and the published package remain unchanged.
+3, and exits on `/quit`. SDK runtime and the published package remain unchanged. A traced hosted recurrence exposed startup placement changes during client
+traffic; the fixture now waits for initial placement before login. Final
+validation of that admission condition is in progress.
 
 ## Exact identities
 
@@ -110,3 +112,37 @@ duplicates remained unchanged. This rules out a JS-only symptom. Group acceptanc
 is still under investigation; passing attempts do not establish reliability.
 Failure collection now captures bounded delivery metrics, fixed delivery-failure
 log fields and public presence before the owned cluster is destroyed.
+
+## Traced startup overlap and fixture correction
+
+[Run 34211203123](https://github.com/WuKongIM/WuKongEasySDK-Python/actions/runs/34211203123)
+checks three fresh starts per environment. It stopped on the second Python 3.11
+start and third Python 3.14 start; all preceding attempts remain in its artifact.
+The failures retain [3.11](receipts/group-20260908/linux-wheel-python311-startup-transition.json)
+and [3.14](receipts/group-20260908/linux-wheel-python314-startup-transition.json)
+receipts with initial/failure topology, phase timestamps, native JS frames,
+delivery/presence metrics and fixed leader-transition log fields.
+
+In the 3.14 failure, Slot 3 initially ran on node 2 although its preferred leader
+was node 3. Bob's UID hashes to physical hash slot 46, owned by logical Slot 3.
+Node 3 became its leader at 09:41:12.308 UTC; Dave sent at 09:41:14.456 UTC.
+Bob then had no authoritative presence, no received wire frame, no reconnect and
+no SDK error. All nodes reported zero expired presence routes. The 3.11 attempt
+also started with Slots 3, 6 and 9 awaiting preferred-leader convergence.
+
+This matches the server's existing
+[presence touch design](https://github.com/WuKongIM/WuKongIM/blob/2a295e0d9881ef5356728a85d56b052c4b0d9c86/docs/superpowers/specs/2026-06-01-internalv2-presence-touch-design.md):
+a changed authority starts empty and reconstructs online routes from the next
+valid owner activity. Python's test heartbeat is 5 seconds; the pinned JS default
+is 25 seconds. Readiness alone did not establish the stable initial placement
+required by this membership/permission scenario. Earlier attempts without
+topology logs retain their original evidence; their exact transitions cannot be
+retrospectively proven.
+
+The corrected fixture waits for observable initial placement before any client
+logs in, with a finite deadline and recorded initial/final snapshots. All 13
+phases, recipients, error codes, eight-second receive deadlines and one-second
+exclusion windows are unchanged. No messages are replayed and failed attempts
+are never retried or discarded. This is a fixture admission correction, not a
+server presence-migration repair or an SDK runtime fix. The server's migration
+limitation remains; apps requiring catch-up must handle history separately.

@@ -2,8 +2,18 @@
 
 Approved seams for this task: installed Python/JS SDK public methods and events,
 Product HTTP management of synthetic users, channels, membership and blacklist,
-owned local process/TLS/network boundaries, and the interactive example CLI.
+owned local process/TLS/network boundaries, the interactive example CLI, and bounded read-only fixture Manager topology.
 The user approved implementation, validation, CI and bilingual documentation.
+
+Before login, the fixture observes the loopback Manager API until all 12 Slots
+have quorum, matched replication, three healthy voters, their configured
+preferred leaders, and no pending leader transfer or active Controller task.
+This has a 60-second deadline inside the 180-second scenario deadline; initial
+and admitted topology snapshots and convergence time are recorded. It waits for
+an observable startup condition and never delays or retries a failed SEND.
+The existing server deliberately rebuilds in-memory presence on the next valid
+owner touch after an authority change. This scenario does not claim uninterrupted
+online delivery during Slot leadership migration.
 
 Four clients span three real ingress nodes, with two groups. Check member fanout,
 channel isolation, add/remove/readd, nonmember and blacklist rejection, reconnect
@@ -75,7 +85,9 @@ bounded and cleaned up. There is no offline-history or large-group claim.
 The separate `group-acceptance.yml` runs Linux Python 3.11 / websockets 15.0.1 and
 Python 3.14 / websockets 17.1 with an independently installed candidate wheel on
 relevant PR/main changes. Manual dispatch chooses `pypi` (exact public 0.1.0) or
-`wheel`. Each job has a 15-minute outer limit and uploads a JSON receipt for 14
+`wheel`. Each job checks three fresh cluster starts and fails on the first failed
+assertion; it never retries a failed message or discards a failed attempt.
+Each job has a 15-minute outer limit and uploads a JSON receipt for 14
 days. It uses pinned Actions, server and JS revisions, read-only permissions,
 and no cloud resources or recurring schedule. The existing cluster workflow
 continues to cover its separate fault/60-second regression.
@@ -83,5 +95,5 @@ continues to cover its separate fault/60-second regression.
 The JS bridge also passively observes native WebSocket message events. Failed
 receipts can distinguish received wire message IDs from SDK MESSAGE callbacks;
 classification counters and a 128-ID window are bounded and omit Payloads/Tokens.
-See `GROUP_VALIDATION.md` for the separately retained, unexplained earlier hosted
-miss; subsequent successful diagnostic runs must not be described as its repair.
+See `GROUP_VALIDATION.md` for the separately retained, earlier hosted
+misses; subsequent successful diagnostic runs must not be described as its repair.

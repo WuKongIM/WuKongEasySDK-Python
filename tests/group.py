@@ -46,12 +46,42 @@ async def topology(cluster):
     tasks = await request(base, "/manager/controller/tasks")
     return {
         "observed_utc": datetime.now(UTC).isoformat(),
+        "total_slots": slots["total"],
         "slots": [
             {key: slot[key] for key in ("slot_id", "state", "assignment", "runtime")}
             for slot in slots["items"][:12]
         ],
         "active_tasks": tasks["total"],
     }
+
+
+async def wait_initial_placement(cluster, report):
+    """Finish the fixture's initial preferred-leader reconciliation before login."""
+    started = time.monotonic()
+    async with asyncio.timeout(60):
+        while True:
+            observed = await topology(cluster)
+            report.setdefault("initial_topology", observed)
+            report["startup_topology"] = observed
+            report["startup_convergence_seconds"] = round(time.monotonic() - started, 3)
+            slots = observed["slots"]
+            if (
+                observed["total_slots"] == len(slots) == 12
+                and observed["active_tasks"] == 0
+                and all(
+                    slot["state"]["quorum"] == "ready"
+                    and slot["state"]["sync"] == "matched"
+                    and slot["state"]["leader_match"]
+                    and not slot["state"]["leader_transfer_pending"]
+                    and slot["runtime"]["leader_id"] == slot["assignment"]["preferred_leader_id"]
+                    and slot["runtime"]["leader_id"] in (1, 2, 3)
+                    and sorted(slot["runtime"]["current_voters"]) == [1, 2, 3]
+                    and slot["runtime"]["healthy_voters"] == 3
+                    for slot in slots
+                )
+            ):
+                return
+            await asyncio.sleep(0.1)
 
 
 async def failure_evidence(cluster):
@@ -392,7 +422,7 @@ async def main():
         try:
             async with asyncio.timeout(180):
                 await cluster.start()
-                report["initial_topology"] = await topology(cluster)
+                await wait_initial_placement(cluster, report)
                 for i, uid in enumerate(USERS):
                     token = secrets.token_hex(24)
                     await cluster.token(uid, token)
