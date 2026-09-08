@@ -39,6 +39,21 @@ async def mutate(cluster, path, body):
     assert result["status"] == 200, f"Management failed: {path}"
 
 
+async def topology(cluster):
+    """Observe this fixture's twelve Slots through its loopback Manager API."""
+    base = f"http://127.0.0.1:{cluster.ports[0][3]}"
+    slots = await request(base, "/manager/slots")
+    tasks = await request(base, "/manager/controller/tasks")
+    return {
+        "observed_utc": datetime.now(UTC).isoformat(),
+        "slots": [
+            {key: slot[key] for key in ("slot_id", "state", "assignment", "runtime")}
+            for slot in slots["items"][:12]
+        ],
+        "active_tasks": tasks["total"],
+    }
+
+
 async def failure_evidence(cluster):
     """Read bounded delivery signals from this fixture only, before destroying it."""
 
@@ -89,6 +104,7 @@ async def failure_evidence(cluster):
                                     if key in event
                                 }
                             )
+                            events[-1]["logged_at"] = line.split("\t", 1)[0]
                         except (ValueError, KeyError):
                             pass
         evidence["delivery_events"] = events[-20:]
@@ -99,6 +115,7 @@ async def failure_evidence(cluster):
     }
     try:
         evidence["presence"] = await request(cluster.api(0), "/user/onlinestatus", USERS)
+        evidence["topology"] = await topology(cluster)
     except Exception as error:
         evidence["presence_error"] = type(error).__name__
     return evidence
@@ -113,6 +130,7 @@ class Group:
 
     async def send(self, phase, sender, recipients, reason=1, channel=MAIN):
         """Assert ACK, all intended recipients and bounded exclusion of every other client."""
+        self.report.setdefault("phase_times", {})[phase] = datetime.now(UTC).isoformat()
         assert all(peer.messages.empty() for peer in self.peers), "Unexpected prior delivery"
         before = [peer.received for peer in self.peers]
         payload = {"counter": len(self.report["phases"]), "type": 1, "content": f"群聊 🌍 {phase}"}
@@ -374,6 +392,7 @@ async def main():
         try:
             async with asyncio.timeout(180):
                 await cluster.start()
+                report["initial_topology"] = await topology(cluster)
                 for i, uid in enumerate(USERS):
                     token = secrets.token_hex(24)
                     await cluster.token(uid, token)
