@@ -79,6 +79,8 @@ class Group:
                         "duplicates": [p.duplicates for p in self.peers],
                         "errors": [p.errors for p in self.peers],
                         "connect_counts": [len(p.connects) for p in self.peers],
+                        "js_wire_frames": dict(self.peers[1].wire_frames),
+                        "js_wire_received": list(self.peers[1].wire_received),
                     }
                     raise AssertionError(f"Missing delivery: {phase}, recipient={index}") from None
                 assert message["channelType"] == 2 and message["channelId"] == channel

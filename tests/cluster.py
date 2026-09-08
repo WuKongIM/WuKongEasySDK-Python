@@ -307,6 +307,8 @@ class JSPeer(Inbox):
         self.connects = deque(maxlen=128)
         self.errors = 0
         self.ready = False
+        self.wire_frames = Counter()
+        self.wire_received = deque(maxlen=128)
 
     async def start(self, cluster, token, entry, uid="cluster-bob"):
         self.process = await asyncio.create_subprocess_exec(
@@ -336,6 +338,10 @@ class JSPeer(Inbox):
             kind = item["kind"]
             if kind == "message":
                 self.receive(item["message"])
+            elif kind == "wire":
+                self.wire_frames.update([item["frame"]])
+                if item.get("messageId"):
+                    self.wire_received.append(item["messageId"])
             elif kind in ("ack", "failed"):
                 self.acks.put_nowait(item)
             elif kind == "connect":

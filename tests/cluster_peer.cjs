@@ -1,7 +1,23 @@
 // Actual pinned JS SDK; stdin commands and stdout receipts are harness boundaries.
 const readline = require('node:readline');
-const { WKIM, WKIMDeviceFlag, WKIMEvent } = require(process.env.WKIM_JS_ENTRY);
 const emit = (kind, value) => console.log(JSON.stringify({kind, ...value}));
+// Observe native socket events without changing frames or SDK dispatch. Retain
+// only frame classification and received message IDs, never credentials/payloads.
+const NativeWebSocket = globalThis.WebSocket;
+globalThis.WebSocket = class extends NativeWebSocket {
+  constructor(...args) {
+    super(...args);
+    this.addEventListener('message', event => {
+      try {
+        const frame = JSON.parse(event.data.toString());
+        const method = frame.method === 'recv' ? 'recv' : 'other';
+        emit('wire', {frame: method + ('id' in frame ? '_with_id' : ''),
+          messageId: method === 'recv' ? frame.params?.messageId : undefined});
+      } catch (_) { emit('wire', {frame: 'invalid_json'}); }
+    });
+  }
+};
+const { WKIM, WKIMDeviceFlag, WKIMEvent } = require(process.env.WKIM_JS_ENTRY);
 const im = WKIM.init(process.env.WKIM_URL, {
   uid: process.env.WKIM_UID || 'cluster-bob', token: process.env.WKIM_BOB_TOKEN,
   deviceFlag: WKIMDeviceFlag.Desktop,
