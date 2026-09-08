@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.1.0 - 2026-09-08
+
 ### Added
 
 - Python 3.11+ asyncio client aligned with WuKongEasySDK-JS 2.0.4, with authenticated
@@ -9,5 +11,6 @@
 - Typed public options and events, bounded queues, async lifecycle cleanup,
   an interactive example, bilingual README and source/wheel validation records.
 
-The initial project version is 0.1.0. Distribution currently uses source installation;
-there is no PyPI release yet.
+- PyPI Trusted Publishing with tag/version/changelog checks and installed-wheel
+  validation before upload.
+- Metadata 2.4 for compatibility with the PyPI upload toolchain.
