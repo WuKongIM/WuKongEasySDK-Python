@@ -1,8 +1,9 @@
 # Validation record — 2026-09-08
 
 Implementation source: [`74650d2df93e52641973926a7bfdda37ab624811`](https://github.com/WuKongIM/WuKongEasySDK-Python/commit/74650d2df93e52641973926a7bfdda37ab624811),
-project version `0.1.0`. The following documentation-only commit adds this record;
-the SDK implementation and tests are identical. This is source and locally built
+project version `0.1.0`. The runtime implementation is unchanged by later documentation and test-fixture
+commits. The cross-platform suite uses the IPv4 loopback fixture at
+`61e6e817c45c20921dde4b8919a1ab58fee6c0ad`. This is source and locally built
 wheel evidence. **No PyPI release has been published.**
 
 ## Local results
@@ -31,14 +32,18 @@ WSS tests verify a private CA, reject untrusted certificates and mismatched
 hostnames, and reject oversized frames. Global DEBUG logging tests ensure the
 SDK does not disclose credentials, Payloads, peer response text or data.
 
-The read-only CI workflow runs the same checks on Linux, macOS, and Windows with
-Python 3.11 and 3.14. Its results are separate from this local record; inspect the
-GitHub Actions run for the exact commit before claiming hosted platform acceptance.
+The read-only CI workflow passed all six Linux/macOS/Windows × Python 3.11/3.14
+jobs at `61e6e817c45c20921dde4b8919a1ab58fee6c0ad`: [hosted run
+34191290715](https://github.com/WuKongIM/WuKongEasySDK-Python/actions/runs/34191290715).
+Each job passed all 52 tests, lint, formatting, strict types, and sdist/wheel builds.
+The first run exposed a test-fixture address mismatch on Windows (IPv4 listener
+versus localhost resolution); matching the client address to the listener resolved
+that failure. No SDK runtime change was required.
 
 ## Real product and JavaScript interoperability
 
 Product source: WuKongIM
-[`bb8da93fdac2aafb17982a78835f07d8a20c7fa0`](https://github.com/WuKongIM/WuKongIM/commit/bb8da93fdac2aafb17982a78835f07d8a20c7fa0).
+[`0348c0539bbee420a859439695acdac911afa854`](https://github.com/WuKongIM/WuKongIM/commit/0348c0539bbee420a859439695acdac911afa854).
 Actual JS SDK: `easyjssdk` 2.0.4, source
 [`9c03c98c725982fac224cd1d3b52456eae983975`](https://github.com/WuKongIM/WuKongEasySDK-JS/commit/9c03c98c725982fac224cd1d3b52456eae983975),
 built using `npm ci` and `npm run build`. This executes the JS SDK, not a synthetic
