@@ -8,19 +8,28 @@ WuKongIM 轻量 Python SDK，要求 Python 3.11+，基于 `asyncio` 与 `websock
 
 ## 安装
 
-工程版本 `0.1.0`，当前通过源码安装，**尚未发布到 PyPI**。可构建 wheel 和 sdist。
+从 [PyPI](https://pypi.org/project/wukong-easy-sdk/0.1.0/) 安装固定版本 `0.1.0`：
 
 ```sh
-git clone https://github.com/WuKongIM/WuKongEasySDK-Python.git
-cd WuKongEasySDK-Python
 python3 -m venv .venv
 source .venv/bin/activate
 # Windows PowerShell 使用 .venv\Scripts\Activate.ps1
-python -m pip install .
+python -m pip install --index-url https://pypi.org/simple "wukong-easy-sdk==0.1.0"
 ```
 
-正式接入时先 checkout 已验证的精确 commit。分发名为 `wukong-easy-sdk`，导入名为
+分发名为 `wukong-easy-sdk`，导入名为
 `wukong_easy_sdk`，依赖 `websockets>=15.0.1,<18`；`uv.lock` 固定开发依赖。
+
+运行交互示例时，下载同版本源码，继续使用上面安装的包：
+
+```sh
+git clone --branch v0.1.0 --depth 1 https://github.com/WuKongIM/WuKongEasySDK-Python.git
+python WuKongEasySDK-Python/examples/chat.py
+```
+
+通过环境变量提供 `WKIM_UID`、`WKIM_TOKEN`、`WKIM_PEER` 和 `WKIM_URL`。
+如需源码安装，先 checkout 精确 tag 或已验证 commit，再运行
+`python -m pip install ./WuKongEasySDK-Python`。
 
 ## 连接、监听与发送
 

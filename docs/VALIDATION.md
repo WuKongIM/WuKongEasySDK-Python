@@ -4,7 +4,7 @@ Implementation source: [`74650d2df93e52641973926a7bfdda37ab624811`](https://gith
 project version `0.1.0`. The runtime implementation is unchanged by later documentation and test-fixture
 commits. The cross-platform suite uses the IPv4 loopback fixture at
 `61e6e817c45c20921dde4b8919a1ab58fee6c0ad`. This is source and locally built
-wheel evidence. **No PyPI release has been published.**
+wheel evidence collected before PyPI publication.
 
 ## Local results
 
