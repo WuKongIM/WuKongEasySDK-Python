@@ -1,0 +1,103 @@
+name: Three-node WSS acceptance
+on:
+  pull_request:
+    paths: ['src/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/cluster-acceptance.yml']
+  push:
+    branches: [main]
+    paths: ['src/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/cluster-acceptance.yml']
+  workflow_dispatch:
+    inputs:
+      duration:
+        description: Workload seconds, after the fault suite
+        type: choice
+        options: ['60', '1800', '3600']
+        default: '1800'
+      package_source:
+        description: Immutable PyPI 0.1.0 or this commit's independently installed wheel
+        type: choice
+        options: [pypi, wheel]
+        default: pypi
+permissions:
+  contents: read
+concurrency:
+  group: cluster-acceptance-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  cluster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: '3.11'
+            websockets: '15.0.1'
+          - python: '3.14'
+            websockets: '17.1'
+    env:
+      ACCEPTANCE_SECONDS: ${{ inputs.duration || '60' }}
+      PACKAGE_SOURCE: ${{ inputs.package_source || 'wheel' }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          path: sdk
+          persist-credentials: false
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: WuKongIM/WuKongIM
+          ref: e7ef61ba702e045648b9fa535f051e5b2ee4a1db
+          path: product
+          persist-credentials: false
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: WuKongIM/WuKongEasySDK-JS
+          ref: 9c03c98c725982fac224cd1d3b52456eae983975
+          path: js
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: product/go.mod
+          cache-dependency-path: product/go.sum
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24.3.0'
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+        with:
+          enable-cache: false
+      - name: Build exact product and JS sources
+        run: |
+          GOWORK=off go -C product build -o "$RUNNER_TEMP/wukongim" ./cmd/wukongim
+          npm --prefix js ci --no-audit --no-fund
+          npm --prefix js run build
+      - name: Install consumer environment independently of the SDK checkout
+        env:
+          WEBSOCKETS_VERSION: ${{ matrix.websockets }}
+        run: |
+          python -m venv "$RUNNER_TEMP/consumer"
+          "$RUNNER_TEMP/consumer/bin/python" -m pip install --index-url https://pypi.org/simple \
+            trustme==1.2.1 psutil==7.2.2 "websockets==$WEBSOCKETS_VERSION"
+          if [ "$PACKAGE_SOURCE" = pypi ]; then
+            "$RUNNER_TEMP/consumer/bin/python" -m pip install --no-cache-dir \
+              --index-url https://pypi.org/simple --report "$RUNNER_TEMP/install.json" \
+              wukong-easy-sdk==0.1.0
+          else
+            uv build --directory sdk
+            "$RUNNER_TEMP/consumer/bin/python" -m pip install --no-index --no-deps \
+              --report "$RUNNER_TEMP/install.json" sdk/dist/*.whl
+          fi
+      - name: Cross-node WSS, fault recovery and bounded workload
+        run: |
+          "$RUNNER_TEMP/consumer/bin/python" sdk/tests/cluster.py \
+            --server "$RUNNER_TEMP/wukongim" --js-entry "$GITHUB_WORKSPACE/js/dist/cjs/index.js" \
+            --package-source "$PACKAGE_SOURCE" --install-report "$RUNNER_TEMP/install.json" \
+            --duration "$ACCEPTANCE_SECONDS" --output "$RUNNER_TEMP/cluster-report.json"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: cluster-acceptance-python-${{ matrix.python }}
+          path: ${{ runner.temp }}/cluster-report.json
+          if-no-files-found: warn
+          retention-days: 14

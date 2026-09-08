@@ -31,6 +31,7 @@ dev = [
  "build>=1.2,<2",
  "trustme>=1.2,<2",
  "twine>=6,<7",
+ "psutil>=7,<8",
 ]
 
 # Twine 6.x / packaging 26.3 cannot validate metadata 2.5 yet.
