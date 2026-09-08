@@ -79,3 +79,9 @@ relevant PR/main changes. Manual dispatch chooses `pypi` (exact public 0.1.0) or
 days. It uses pinned Actions, server and JS revisions, read-only permissions,
 and no cloud resources or recurring schedule. The existing cluster workflow
 continues to cover its separate fault/60-second regression.
+
+The JS bridge also passively observes native WebSocket message events. Failed
+receipts can distinguish received wire message IDs from SDK MESSAGE callbacks;
+classification counters and a 128-ID window are bounded and omit Payloads/Tokens.
+See `GROUP_VALIDATION.md` for the separately retained, unexplained earlier hosted
+miss; subsequent successful diagnostic runs must not be described as its repair.
