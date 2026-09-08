@@ -1,6 +1,8 @@
 # Validation record — 2026-09-08
 
 For the released package, see [PyPI 0.1.0 artifact and installed-package acceptance](PYPI_VALIDATION.md).
+The subsequent [three-node WSS and 30-minute record](CLUSTER_VALIDATION.md) keeps
+its installed-package, product, JS and harness identities separate from this source run.
 
 Implementation source: [`74650d2df93e52641973926a7bfdda37ab624811`](https://github.com/WuKongIM/WuKongEasySDK-Python/commit/74650d2df93e52641973926a7bfdda37ab624811),
 project version `0.1.0`. The runtime implementation is unchanged by later documentation and test-fixture

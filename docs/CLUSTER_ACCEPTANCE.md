@@ -1,5 +1,7 @@
 # Three-node WSS acceptance
 
+Completed runs and raw JSON receipts are in [CLUSTER_VALIDATION.md](CLUSTER_VALIDATION.md).
+
 Approved test seams: the installed SDK's public methods and events, the real JS
 SDK, Product HTTP readiness/Token/presence/metrics, and owned process/network
 boundaries. No SDK internals or synthetic messaging server are assertion surfaces.
@@ -49,12 +51,17 @@ git -C js checkout --detach 9c03c98c725982fac224cd1d3b52456eae983975
 npm --prefix js ci --no-audit --no-fund
 npm --prefix js run build
 
+git clone https://github.com/WuKongIM/WuKongEasySDK-Python.git python-sdk-harness
+git -C python-sdk-harness checkout --detach 1bda54d04154d246be04c8c5452586d77a932333
+
 python3 -m venv /tmp/python-sdk-consumer
 /tmp/python-sdk-consumer/bin/python -m pip install --no-cache-dir \
   --index-url https://pypi.org/simple --report /tmp/python-sdk-install.json \
   wukong-easy-sdk==0.1.0 trustme==1.2.1 psutil==7.2.2
 
-# Run from the Python SDK harness checkout. Do not install it editable.
+# The acceptance harness is newer than the v0.1.0 example tag.
+# Run from this pinned checkout. Do not install it editable.
+cd python-sdk-harness
 /tmp/python-sdk-consumer/bin/python tests/cluster.py \
   --server /tmp/wukongim-python-cluster \
   --js-entry /absolute/path/to/js/dist/cjs/index.js \
@@ -74,12 +81,20 @@ messages, at up to five cycles per second. SENDACK and RECV must agree on ID and
 sequence and preserve the exact payload. Application inboxes deduplicate a bounded
 8,192-ID window while separately counting raw duplicate callbacks.
 
+The Python acceptance clients override heartbeat to 5 seconds, Pong and connection
+deadlines to 3 seconds, request timeout to 8 seconds, and reconnect to 20 attempts
+starting at 0.5 seconds with a 2-second cap. Queue limits retain SDK defaults.
+These bounded fault-test settings differ from the SDK defaults documented in the
+README; the installed runtime itself is unchanged. JS uses its SDK defaults.
+
 One fault drops downstream bytes after the peer receives a SEND, then cuts the
 transport. The pending operation must report `CONNECTION_LOST`, reconnect and
 recover without replaying that SEND. This repeats every five minutes. A separate
 fault kills and restarts ingress node 1 using the same data. Token rotation through
 node 2 must reject the old credential and accept the new one on all three nodes.
 Fresh clients use the new Token; the SDK does not refresh credentials itself.
+Transport `recovery_seconds` includes the one-second outage and a one-second
+post-reconnect no-replay observation, so it is not a pure connection latency.
 
 Resource samples every 30 seconds include Python harness RSS (both Python SDK
 clients, TLS proxies and bookkeeping), JS RSS, each server's RSS, file descriptors,
@@ -103,3 +118,6 @@ The harness checks the clean product VCS stamp, clean JS source revision, pip
 installation version/source, and the exact published wheel hash in PyPI mode.
 Receipts retain hashes of the harness files and server executable, with client and
 dependency versions. A wheel run is candidate evidence, not a PyPI publication.
+
+The source pins and local dependency versions are recorded independently. The
+local macOS consumers used Node 22.12.0; hosted Linux CI uses Node 24.3.0.

@@ -1,0 +1,2005 @@
+{
+  "status": "passed",
+  "server_revision": "e7ef61ba702e045648b9fa535f051e5b2ee4a1db",
+  "js_revision": "9c03c98c725982fac224cd1d3b52456eae983975",
+  "python_sdk_version": "0.1.0",
+  "python": "3.14.7",
+  "platform": "macOS-15.1-arm64-arm-64bit-Mach-O",
+  "server_sha256": "a10329d35b697c1473bb91b7c342bcce428e0c0451581bb6383e17a8d9d1743e",
+  "requested_workload_seconds": 1800,
+  "faults": [
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.308,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "ingress_node_crash_restart",
+      "node_id": 1,
+      "recovery_seconds": 4.869
+    },
+    {
+      "kind": "backend_token_rotation",
+      "old_token_rejected_nodes": [
+        1,
+        2,
+        3
+      ],
+      "new_token_accepted_nodes": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.314,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.518,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.411,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.411,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.41,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    }
+  ],
+  "samples": [
+    {
+      "seconds": 0.062,
+      "python_harness": {
+        "rss_bytes": 44859392,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 47906816,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 152666112,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 123633664,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 140902400,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 30.188,
+      "python_harness": {
+        "rss_bytes": 30310400,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 50036736,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 229785600,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 214958080,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 215138304,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 60.127,
+      "python_harness": {
+        "rss_bytes": 31522816,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 50675712,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 262619136,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 247316480,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 239894528,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 90.049,
+      "python_harness": {
+        "rss_bytes": 31768576,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52953088,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 264880128,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 250413056,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 244613120,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 120.21,
+      "python_harness": {
+        "rss_bytes": 31883264,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 59834368,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 274432000,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 251019264,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 255918080,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 150.153,
+      "python_harness": {
+        "rss_bytes": 32063488,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 60489728,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 264781824,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 252854272,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 256032768,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 180.193,
+      "python_harness": {
+        "rss_bytes": 31801344,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 54771712,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 265371648,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 254918656,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 251904000,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 210.332,
+      "python_harness": {
+        "rss_bytes": 31752192,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 56115200,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 267501568,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 257032192,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 253771776,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 240.29,
+      "python_harness": {
+        "rss_bytes": 30343168,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48742400,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 267255808,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 225099776,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 117833728,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 270.148,
+      "python_harness": {
+        "rss_bytes": 31801344,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49922048,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 271122432,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 258211840,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 256655360,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 300.078,
+      "python_harness": {
+        "rss_bytes": 31899648,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 50151424,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 274382848,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 263405568,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 259735552,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 330.016,
+      "python_harness": {
+        "rss_bytes": 37519360,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 58458112,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 276578304,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 265699328,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 262012928,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 360.005,
+      "python_harness": {
+        "rss_bytes": 30769152,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48463872,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 154664960,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 128122880,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 218841088,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 390.012,
+      "python_harness": {
+        "rss_bytes": 32063488,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48906240,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 270761984,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 266928128,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 262438912,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 420.092,
+      "python_harness": {
+        "rss_bytes": 32243712,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 50085888,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 289406976,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 270860288,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 267010048,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 450.047,
+      "python_harness": {
+        "rss_bytes": 32325632,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52232192,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 291635200,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 273530880,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 269729792,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 480.046,
+      "python_harness": {
+        "rss_bytes": 32407552,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52314112,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 293797888,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 275824640,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 271876096,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 510.046,
+      "python_harness": {
+        "rss_bytes": 32997376,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52609024,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 295895040,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 278036480,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 274759680,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 540.058,
+      "python_harness": {
+        "rss_bytes": 33046528,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52641792,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 298024960,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 280150016,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 277004288,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 570.054,
+      "python_harness": {
+        "rss_bytes": 33144832,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 53723136,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 300122112,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 282656768,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 279298048,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 600.078,
+      "python_harness": {
+        "rss_bytes": 33243136,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 54018048,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 302219264,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 284786688,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 281444352,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 630.139,
+      "python_harness": {
+        "rss_bytes": 38682624,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 58130432,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 304168960,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 286720000,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 283410432,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 660.161,
+      "python_harness": {
+        "rss_bytes": 38764544,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 58228736,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 306266112,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 288849920,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 285507584,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 690.171,
+      "python_harness": {
+        "rss_bytes": 38830080,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 58261504,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 308264960,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 290963456,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 287670272,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 720.173,
+      "python_harness": {
+        "rss_bytes": 38830080,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 57622528,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 306921472,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 293027840,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 289390592,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 750.18,
+      "python_harness": {
+        "rss_bytes": 37666816,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48840704,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 295256064,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 293306368,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 289095680,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 780.005,
+      "python_harness": {
+        "rss_bytes": 32735232,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 42467328,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 282705920,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 287080448,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 285097984,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 810.198,
+      "python_harness": {
+        "rss_bytes": 33144832,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43548672,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 297500672,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 294010880,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 291553280,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 840.029,
+      "python_harness": {
+        "rss_bytes": 33292288,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43532288,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 299794432,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 294535168,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 289325056,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 870.079,
+      "python_harness": {
+        "rss_bytes": 33357824,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 47284224,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 302186496,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 299040768,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 296665088,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 900.009,
+      "python_harness": {
+        "rss_bytes": 32423936,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48447488,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 301498368,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 298090496,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 292896768,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 930.081,
+      "python_harness": {
+        "rss_bytes": 38813696,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 48447488,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 305643520,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 302678016,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 300204032,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 960.023,
+      "python_harness": {
+        "rss_bytes": 38846464,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49709056,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 308068352,
+          "fds": 74
+        },
+        {
+          "rss_bytes": 305201152,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 302530560,
+          "fds": 70
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 990.158,
+      "python_harness": {
+        "rss_bytes": 38699008,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49741824,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 310968320,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 309608448,
+          "fds": 76
+        },
+        {
+          "rss_bytes": 306462720,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1020.133,
+      "python_harness": {
+        "rss_bytes": 39878656,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49790976,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 314490880,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 312016896,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 309592064,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1050.082,
+      "python_harness": {
+        "rss_bytes": 39911424,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49840128,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 318881792,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 314621952,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 312115200,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1080.014,
+      "python_harness": {
+        "rss_bytes": 39927808,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49922048,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 321011712,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 317145088,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 314343424,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1110.147,
+      "python_harness": {
+        "rss_bytes": 39976960,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49954816,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 323059712,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 319422464,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 316473344,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1140.065,
+      "python_harness": {
+        "rss_bytes": 39878656,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49332224,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 315932672,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 314425344,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 310902784,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1170.056,
+      "python_harness": {
+        "rss_bytes": 39927808,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49643520,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 312999936,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 311492608,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 308887552,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1200.118,
+      "python_harness": {
+        "rss_bytes": 39944192,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49643520,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 315146240,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 313835520,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 311197696,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1230.062,
+      "python_harness": {
+        "rss_bytes": 42237952,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49643520,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 334168064,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 315801600,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 313196544,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1260.013,
+      "python_harness": {
+        "rss_bytes": 42352640,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49643520,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 336379904,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 317964288,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 315310080,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1290.158,
+      "python_harness": {
+        "rss_bytes": 42450944,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49643520,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 337870848,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 319471616,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 316850176,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1320.079,
+      "python_harness": {
+        "rss_bytes": 41844736,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 45072384,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 319143936,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 307183616,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 304660480,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1350.197,
+      "python_harness": {
+        "rss_bytes": 36356096,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43696128,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 293978112,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 282247168,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 280182784,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1380.129,
+      "python_harness": {
+        "rss_bytes": 36257792,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43483136,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 286359552,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 275857408,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 273448960,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1410.058,
+      "python_harness": {
+        "rss_bytes": 36454400,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43368448,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 286916608,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 272629760,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 269959168,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1440.059,
+      "python_harness": {
+        "rss_bytes": 34373632,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 43040768,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 278446080,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 272891904,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 262078464,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1470.197,
+      "python_harness": {
+        "rss_bytes": 34799616,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 44122112,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 281853952,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 276955136,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 273612800,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1500.137,
+      "python_harness": {
+        "rss_bytes": 34897920,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 44220416,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 284082176,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 279150592,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 276037632,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1530.012,
+      "python_harness": {
+        "rss_bytes": 40419328,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 44482560,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 285982720,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 281165824,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 278347776,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1560.15,
+      "python_harness": {
+        "rss_bytes": 40583168,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 44531712,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 288145408,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 283508736,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 280592384,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1590.021,
+      "python_harness": {
+        "rss_bytes": 40599552,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 44580864,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 290521088,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 285720576,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 282951680,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1620.014,
+      "python_harness": {
+        "rss_bytes": 27607040,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31440896,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 285229056,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 275447808,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 274415616,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1650.197,
+      "python_harness": {
+        "rss_bytes": 29229056,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31670272,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 292290560,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 284573696,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 282443776,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1680.165,
+      "python_harness": {
+        "rss_bytes": 29474816,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31850496,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 295616512,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 288407552,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 286113792,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1710.052,
+      "python_harness": {
+        "rss_bytes": 29753344,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31883264,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 297811968,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 290652160,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 288423936,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1740.023,
+      "python_harness": {
+        "rss_bytes": 29835264,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31948800,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 307675136,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 292962304,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 291225600,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1770.182,
+      "python_harness": {
+        "rss_bytes": 29900800,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 31997952,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 309870592,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 295649280,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 293519360,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 1800.032,
+      "python_harness": {
+        "rss_bytes": 29966336,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 32079872,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 311951360,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 297910272,
+          "fds": 80
+        },
+        {
+          "rss_bytes": 295632896,
+          "fds": 73
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "acknowledged_and_received": 35380,
+  "provenance": {
+    "package_source": "pypi",
+    "wheel_sha256": "d653a73537aa0ca66aa21eb4a6ab2f60bfc5b819e018f233a8a9c9502671cf48",
+    "websockets": "17.1",
+    "node": "v22.12.0",
+    "harness_sha256": {
+      "cluster.py": "f223bfe4688d3950db1c4c049f07cc3d71bb7f4c4f178b56eb81a9b685171624",
+      "cluster_peer.cjs": "28c6bacb80a53451f27525d3152e685ddc170d1f3d6721e6c279d76cae62dfc7",
+      "product.py": "474a466949f5b361a88172fa17521cbe518f9385cb95985c629282ac566dd6a8"
+    }
+  },
+  "connected_nodes": [
+    1,
+    2,
+    3
+  ],
+  "workload_seconds": 1800.032,
+  "deliveries": {
+    "cluster-alice": {
+      "observed": 17690,
+      "duplicates": 0
+    },
+    "cluster-carol": {
+      "observed": 8851,
+      "duplicates": 0
+    },
+    "cluster-bob": {
+      "observed": 8845,
+      "duplicates": 0
+    }
+  },
+  "errors": {
+    "cluster-alice": {
+      "-5": 16
+    },
+    "cluster-carol": {},
+    "js": 0
+  },
+  "offline_confirmed": true,
+  "cleanup": {
+    "owned_processes_running": 0,
+    "proxy_connections": 0,
+    "extra_asyncio_tasks": 0
+  },
+  "elapsed_seconds": 1835.78
+}

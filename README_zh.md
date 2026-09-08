@@ -125,3 +125,7 @@ uv run python tests/product.py --server /absolute/path/to/wukongim \
 ```
 
 完整环境与范围见[验证记录](docs/VALIDATION.md)，接口迁移见[JS 对照表](docs/API.md)。
+
+独立安装包的[三节点 WSS 验收流程](docs/CLUSTER_ACCEPTANCE.md)覆盖 Python/JS 收发、
+丢失 ACK、断网、节点重启、Token 轮换与 30/60 分钟限时运行。该验收脚本使用单独固定的
+源码提交，与 `v0.1.0` 交互示例标签分开。
