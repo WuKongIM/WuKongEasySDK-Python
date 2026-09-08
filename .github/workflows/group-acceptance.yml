@@ -84,14 +84,16 @@ jobs:
           fi
       - name: Group fanout, permissions, reconnect and interactive example
         run: |
-          "$RUNNER_TEMP/consumer/bin/python" sdk/tests/group.py \
-            --server "$RUNNER_TEMP/wukongim" --js-entry "$GITHUB_WORKSPACE/js/dist/cjs/index.js" \
-            --package-source "$PACKAGE_SOURCE" --install-report "$RUNNER_TEMP/install.json" \
-            --output "$RUNNER_TEMP/group-report.json"
+          for attempt in 1 2 3; do
+            "$RUNNER_TEMP/consumer/bin/python" sdk/tests/group.py \
+              --server "$RUNNER_TEMP/wukongim" --js-entry "$GITHUB_WORKSPACE/js/dist/cjs/index.js" \
+              --package-source "$PACKAGE_SOURCE" --install-report "$RUNNER_TEMP/install.json" \
+              --output "$RUNNER_TEMP/group-report-$attempt.json"
+          done
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: group-acceptance-python-${{ matrix.python }}
-          path: ${{ runner.temp }}/group-report.json
+          path: ${{ runner.temp }}/group-report-*.json
           if-no-files-found: warn
           retention-days: 14
