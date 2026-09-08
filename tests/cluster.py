@@ -138,9 +138,10 @@ class Proxy:
 class Cluster:
     """Own exactly three processes, their isolated files, and loopback listeners."""
 
-    def __init__(self, root, binary):
+    def __init__(self, root, binary, log_level="error"):
         self.root = root
         self.binary = binary
+        self.log_level = log_level
         ports = free_ports(15)
         self.ports = [ports[i : i + 5] for i in range(0, 15, 5)]
         self.processes = [None] * 3
@@ -197,7 +198,7 @@ socket_path = "{self.root / f"n{i + 1}.sock"}"
 [observability]
 metrics_enable = true
 [log]
-level = "error"
+level = "{self.log_level}"
 console = false
 dir = "{node / "logs"}"
 ''')

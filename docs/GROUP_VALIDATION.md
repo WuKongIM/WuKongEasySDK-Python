@@ -59,7 +59,7 @@ limit that caused huge storage preallocation in an intermediate candidate.
 Existing person metadata and versioned group snapshot reuse remain in place.
 
 Only the final fixed-server runs above count as successful acceptance. Intermediate
-server candidates and an earlier hosted missed-JS-delivery attempt are not folded
+server candidates and hosted missed-member-delivery attempts are not folded
 into those results. Hosted diagnostics and their scope are recorded below.
 
 This is online functionality for four clients, not a large-group benchmark,
@@ -94,10 +94,19 @@ after Dave joined: Alice and Carol received the accepted message, while all four
 clients retained their original connection and reported no error or duplicate.
 The cause was not established. Three additional local Node 24.3.0 diagnostic
 runs and the subsequent hosted diagnostic run passed; these do **not** prove that
-the isolated miss is fixed. This observation remains separate from the confirmed
+the intermittent miss is fixed. This observation remains separate from the confirmed
 server stale-membership and oversized-allocation repairs. The native event
 observer provides evidence for a future recurrence; it is not a runtime fix.
 
-The earlier isolated miss is tracked in [issue #7](https://github.com/WuKongIM/WuKongEasySDK-Python/issues/7).
+The intermittent miss is tracked in [issue #7](https://github.com/WuKongIM/WuKongEasySDK-Python/issues/7).
 The unchanged historical person scenario also passed the updated diagnostic bridge
 on both Linux consumer versions in [run 34208513040](https://github.com/WuKongIM/WuKongEasySDK-Python/actions/runs/34208513040).
+
+A later [Python 3.14 receipt](receipts/group-20260908/linux-wheel-python314-later-miss.json)
+from [run 34209083205](https://github.com/WuKongIM/WuKongEasySDK-Python/actions/runs/34209083205)
+missed Python Carol in the same phase. Alice and JS Bob received; Bob's native
+WebSocket observer also saw the accepted message ID. Connections, errors and
+duplicates remained unchanged. This rules out a JS-only symptom. Group acceptance
+is still under investigation; passing attempts do not establish reliability.
+Failure collection now captures bounded delivery metrics, fixed delivery-failure
+log fields and public presence before the owned cluster is destroyed.

@@ -12,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -38,10 +39,65 @@ async def mutate(cluster, path, body):
     assert result["status"] == 200, f"Management failed: {path}"
 
 
+async def failure_evidence(cluster):
+    """Read bounded delivery signals from this fixture only, before destroying it."""
+
+    def collect(index):
+        evidence = {"node": index + 1, "process_exit": cluster.processes[index].returncode}
+        try:
+            with urllib.request.urlopen(cluster.api(index) + "/metrics", timeout=2) as response:
+                lines = response.read(2_000_000).decode().splitlines()
+            evidence["delivery_metrics"] = [
+                line
+                for line in lines
+                if line.startswith("wukongim_delivery_") and "_bucket{" not in line
+            ][:200]
+        except Exception as error:
+            evidence["metrics_error"] = type(error).__name__
+        events = []
+        for path in sorted((cluster.root / f"node{index + 1}" / "logs").rglob("*.log"))[:6]:
+            with path.open("rb") as stream:
+                stream.seek(max(0, path.stat().st_size - 262144))
+                for line in stream.read(262144).decode(errors="replace").splitlines():
+                    if '"event": "internal.app.delivery.plan_incomplete"' in line:
+                        try:
+                            event = json.loads(line[line.index("{") :])
+                            events.append(
+                                {
+                                    key: event[key]
+                                    for key in (
+                                        "event",
+                                        "result",
+                                        "phase",
+                                        "mode",
+                                        "recipients",
+                                        "uid",
+                                        "ownerNodeID",
+                                        "error",
+                                    )
+                                    if key in event
+                                }
+                            )
+                        except (ValueError, KeyError):
+                            pass
+        evidence["delivery_events"] = events[-20:]
+        return evidence
+
+    evidence = {
+        "nodes": await asyncio.gather(*(asyncio.to_thread(collect, index) for index in range(3)))
+    }
+    try:
+        evidence["presence"] = await request(cluster.api(0), "/user/onlinestatus", USERS)
+    except Exception as error:
+        evidence["presence_error"] = type(error).__name__
+    return evidence
+
+
 class Group:
-    def __init__(self, peers, report):
+    def __init__(self, peers, report, cluster):
         self.peers = peers
         self.report = report
+        self.cluster = cluster
         self.sequences = {}
 
     async def send(self, phase, sender, recipients, reason=1, channel=MAIN):
@@ -81,6 +137,7 @@ class Group:
                         "connect_counts": [len(p.connects) for p in self.peers],
                         "js_wire_frames": dict(self.peers[1].wire_frames),
                         "js_wire_received": list(self.peers[1].wire_received),
+                        "server_evidence": await failure_evidence(self.cluster),
                     }
                     raise AssertionError(f"Missing delivery: {phase}, recipient={index}") from None
                 assert message["channelType"] == 2 and message["channelId"] == channel
@@ -141,7 +198,7 @@ async def exercise(cluster, peers, report):
                 "subscribers": [USERS[i] for i in indices],
             },
         )
-    group = Group(peers, report)
+    group = Group(peers, report, cluster)
     await group.send("member_fanout", 0, [1, 2])
     await group.send("channel_isolation", 1, [0], channel=ISOLATED)
     await group.send("nonmember_rejected", 3, [], reason=3)
@@ -301,7 +358,7 @@ async def main():
         }
     )
     with tempfile.TemporaryDirectory(prefix="wkgrp-") as directory:
-        cluster = Cluster(Path(directory), args.server.resolve())
+        cluster = Cluster(Path(directory), args.server.resolve(), log_level="warn")
         peers = []
         try:
             async with asyncio.timeout(180):
