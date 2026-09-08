@@ -1,5 +1,7 @@
 # Validation record — 2026-09-08
 
+For the released package, see [PyPI 0.1.0 artifact and installed-package acceptance](PYPI_VALIDATION.md).
+
 Implementation source: [`74650d2df93e52641973926a7bfdda37ab624811`](https://github.com/WuKongIM/WuKongEasySDK-Python/commit/74650d2df93e52641973926a7bfdda37ab624811),
 project version `0.1.0`. The runtime implementation is unchanged by later documentation and test-fixture
 commits. The cross-platform suite uses the IPv4 loopback fixture at
