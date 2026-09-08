@@ -172,3 +172,28 @@ For independently installed packages, the [three-node WSS acceptance guide](docs
 covers Python/JS messaging, withheld ACKs, transport loss, node restart, Token
 rotation and a bounded 30/60-minute workload. This harness uses its own pinned
 source checkout, separately from the `v0.1.0` example tag.
+
+## Group chat
+
+A trusted backend creates the group and manages its members through Product HTTP.
+Clients receive only their UID, device-2 Token, Gateway URL and group ID. Send with
+`await im.send(group_id, WKIMChannelType.GROUP, payload)` and receive through the
+same `WKIMEvent.MESSAGE` handler. No client-side subscription call is required.
+
+The interactive `examples/group_chat.py` uses `WKIM_UID`, `WKIM_TOKEN`,
+`WKIM_GROUP`, `WKIM_URL` and optional `WKIM_CA_FILE`; type `/quit` to close. Use the
+newer example source pinned in [group validation](docs/GROUP_VALIDATION.md): the
+original `v0.1.0` tag predates this example. The installed package remains 0.1.0.
+Members must be online. SENDACK confirms server acceptance, not a user's read.
+
+With `allow_stranger=0`, a nonmember SEND raises `WKIMError.code == 3`; a
+blacklisted sender raises code 4. Your backend controls these policies. Check the
+numeric code and reconcile an uncertain send outcome before retrying. The SDK
+neither creates groups nor repairs membership or fetches missed history.
+
+**Server requirement:** the cross-node membership acceptance uses the fixed server
+source identified in [GROUP_VALIDATION.md](docs/GROUP_VALIDATION.md). Older server
+sources can retain stale recipient caches after membership changes through another
+node; a Python package upgrade cannot correct that server behavior. The separate
+[group acceptance guide](docs/GROUP_ACCEPTANCE.md) covers four Python/JS WSS
+clients, two groups, membership/permissions, reconnect and the real CLI.

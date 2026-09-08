@@ -3,7 +3,7 @@ const readline = require('node:readline');
 const { WKIM, WKIMDeviceFlag, WKIMEvent } = require(process.env.WKIM_JS_ENTRY);
 const emit = (kind, value) => console.log(JSON.stringify({kind, ...value}));
 const im = WKIM.init(process.env.WKIM_URL, {
-  uid: 'cluster-bob', token: process.env.WKIM_BOB_TOKEN,
+  uid: process.env.WKIM_UID || 'cluster-bob', token: process.env.WKIM_BOB_TOKEN,
   deviceFlag: WKIMDeviceFlag.Desktop,
 }, { singleton: false });
 im.on(WKIMEvent.Error, () => emit('error', {}));
@@ -13,13 +13,13 @@ readline.createInterface({input: process.stdin}).on('line', async line => {
   const command = JSON.parse(line);
   try {
     if (command.kind === 'send') {
-      const ack = await im.send(command.uid, 1, command.payload);
+      const ack = await im.send(command.uid, command.channelType || 1, command.payload);
       emit('ack', {id: command.id, ack});
     } else if (command.kind === 'stop') {
       im.destroy();
       process.exit(0);
     }
-  } catch (_) { emit('failed', {id: command.id}); }
+  } catch (error) { emit('failed', {id: command.id, code: error.code}); }
 });
 im.connect().then(() => emit('ready', {})).catch(() => {
   emit('fatal', {}); im.destroy(); process.exit(1);

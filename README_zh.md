@@ -129,3 +129,25 @@ uv run python tests/product.py --server /absolute/path/to/wukongim \
 独立安装包的[三节点 WSS 验收流程](docs/CLUSTER_ACCEPTANCE.md)覆盖 Python/JS 收发、
 丢失 ACK、断网、节点重启、Token 轮换与 30/60 分钟限时运行。该验收脚本使用单独固定的
 源码提交，与 `v0.1.0` 交互示例标签分开。
+
+## 群聊
+
+由可信后端通过 Product HTTP 创建群和管理成员；客户端只接收 UID、设备类别 2
+的 Token、Gateway 地址和群 ID。调用
+`await im.send(group_id, WKIMChannelType.GROUP, payload)` 发送，继续通过
+`WKIMEvent.MESSAGE` 接收，不需要客户端订阅接口。
+
+命令行示例 `examples/group_chat.py` 使用 `WKIM_UID`、`WKIM_TOKEN`、`WKIM_GROUP`、
+`WKIM_URL` 和可选的 `WKIM_CA_FILE`，输入 `/quit` 退出。请使用
+[群聊验证记录](docs/GROUP_VALIDATION.md) 固定的新版示例源码；原 `v0.1.0` 标签不包含
+这个新增示例。安装的 PyPI 包仍是 0.1.0。成员须在线，SENDACK 表示服务端接收成功，
+不是用户已读。
+
+群设置 `allow_stranger=0` 时，非成员发送抛出 `WKIMError.code == 3`；黑名单成员
+发送返回错误码 4。策略由后端决定。先判断原因码；发送结果不确定时由后端核对后
+再决定是否重试。SDK 不创建群、不修复成员关系，也不补拉离线历史。
+
+**服务端要求：**跨节点成员变更验收使用[验证记录](docs/GROUP_VALIDATION.md)中的
+服务端修复源码。旧服务端在其他节点变更成员后可能沿用过期投递缓存，升级 Python
+包不能修复这一服务端行为。[独立群聊验收流程](docs/GROUP_ACCEPTANCE.md)覆盖四个
+Python/JS WSS 客户端、两个群、成员与权限变更、重连和实际命令行示例。
