@@ -50,8 +50,9 @@ async def failure_evidence(cluster):
             evidence["delivery_metrics"] = [
                 line
                 for line in lines
-                if line.startswith("wukongim_delivery_") and "_bucket{" not in line
-            ][:200]
+                if line.startswith(("wukongim_delivery_", "wukongim_presence_"))
+                and "_bucket{" not in line
+            ][:300]
         except Exception as error:
             evidence["metrics_error"] = type(error).__name__
         events = []
@@ -59,7 +60,13 @@ async def failure_evidence(cluster):
             with path.open("rb") as stream:
                 stream.seek(max(0, path.stat().st_size - 262144))
                 for line in stream.read(262144).decode(errors="replace").splitlines():
-                    if '"event": "internal.app.delivery.plan_incomplete"' in line:
+                    if any(
+                        event in line
+                        for event in (
+                            '"event": "internal.app.delivery.plan_incomplete"',
+                            '"raftEvent": "leader_change"',
+                        )
+                    ):
                         try:
                             event = json.loads(line[line.index("{") :])
                             events.append(
@@ -74,6 +81,10 @@ async def failure_evidence(cluster):
                                         "uid",
                                         "ownerNodeID",
                                         "error",
+                                        "raftScope",
+                                        "raftEvent",
+                                        "nodeID",
+                                        "slotID",
                                     )
                                     if key in event
                                 }
@@ -358,7 +369,7 @@ async def main():
         }
     )
     with tempfile.TemporaryDirectory(prefix="wkgrp-") as directory:
-        cluster = Cluster(Path(directory), args.server.resolve(), log_level="warn")
+        cluster = Cluster(Path(directory), args.server.resolve(), log_level="info")
         peers = []
         try:
             async with asyncio.timeout(180):
