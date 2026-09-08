@@ -26,14 +26,14 @@ SERVER_REVISION = "e7ef61ba702e045648b9fa535f051e5b2ee4a1db"
 JS_REVISION = "9c03c98c725982fac224cd1d3b52456eae983975"
 
 
-def provenance(args):
+def provenance(args, server_revision=SERVER_REVISION):
     """Fail closed on mismatched source stamps or editable SDK installations."""
 
     def command(*argv):
         return subprocess.check_output(argv, text=True, timeout=15).strip()
 
     build = command("go", "version", "-m", str(args.server))
-    assert f"vcs.revision={SERVER_REVISION}" in build, "Server source revision mismatch"
+    assert f"vcs.revision={server_revision}" in build, "Server source revision mismatch"
     assert "vcs.modified=false" in build, "Server must come from a clean checkout"
     js_root = args.js_entry.resolve().parents[2]
     assert command("git", "-C", str(js_root), "rev-parse", "HEAD") == JS_REVISION
@@ -138,9 +138,10 @@ class Proxy:
 class Cluster:
     """Own exactly three processes, their isolated files, and loopback listeners."""
 
-    def __init__(self, root, binary):
+    def __init__(self, root, binary, log_level="error"):
         self.root = root
         self.binary = binary
+        self.log_level = log_level
         ports = free_ports(15)
         self.ports = [ports[i : i + 5] for i in range(0, 15, 5)]
         self.processes = [None] * 3
@@ -197,7 +198,7 @@ socket_path = "{self.root / f"n{i + 1}.sock"}"
 [observability]
 metrics_enable = true
 [log]
-level = "error"
+level = "{self.log_level}"
 console = false
 dir = "{node / "logs"}"
 ''')
@@ -307,8 +308,10 @@ class JSPeer(Inbox):
         self.connects = deque(maxlen=128)
         self.errors = 0
         self.ready = False
+        self.wire_frames = Counter()
+        self.wire_received = deque(maxlen=128)
 
-    async def start(self, cluster, token, entry):
+    async def start(self, cluster, token, entry, uid="cluster-bob"):
         self.process = await asyncio.create_subprocess_exec(
             "node",
             str(Path(__file__).with_name("cluster_peer.cjs")),
@@ -316,6 +319,7 @@ class JSPeer(Inbox):
                 os.environ,
                 WKIM_URL=cluster.url(1),
                 WKIM_BOB_TOKEN=token,
+                WKIM_UID=uid,
                 WKIM_JS_ENTRY=str(entry),
                 NODE_EXTRA_CA_CERTS=str(cluster.ca_file),
             ),
@@ -335,7 +339,11 @@ class JSPeer(Inbox):
             kind = item["kind"]
             if kind == "message":
                 self.receive(item["message"])
-            elif kind == "ack":
+            elif kind == "wire":
+                self.wire_frames.update([item["frame"]])
+                if item.get("messageId"):
+                    self.wire_received.append(item["messageId"])
+            elif kind in ("ack", "failed"):
                 self.acks.put_nowait(item)
             elif kind == "connect":
                 self.connects.append(item["result"])
@@ -346,12 +354,20 @@ class JSPeer(Inbox):
             else:
                 raise AssertionError(f"JS peer failure: {kind}")
 
-    async def send(self, uid, payload):
-        command = {"kind": "send", "id": payload["counter"], "uid": uid, "payload": payload}
+    async def send(self, uid, payload, channel_type=1):
+        command = {
+            "kind": "send",
+            "id": payload["counter"],
+            "uid": uid,
+            "payload": payload,
+            "channelType": channel_type,
+        }
         self.process.stdin.write(json.dumps(command).encode() + b"\n")
         await self.process.stdin.drain()
         result = await asyncio.wait_for(self.acks.get(), 10)
         assert result["id"] == command["id"]
+        if result["kind"] == "failed":
+            raise WKIMError(result["code"], "JS send rejected")
         return result["ack"]
 
     async def close(self):

@@ -1,0 +1,1077 @@
+{
+  "status": "passed",
+  "started_at": "2026-09-08T09:46:29.793959+00:00",
+  "server_revision": "2a295e0d9881ef5356728a85d56b052c4b0d9c86",
+  "js_revision": "9c03c98c725982fac224cd1d3b52456eae983975",
+  "python_sdk_version": "0.1.0",
+  "python": "3.11.16",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "server_sha256": "32e8d29f279aa91c6ac4fef15b52cf4fd9a65e9ff5c0d27aaf73023dd6169811",
+  "provenance": {
+    "package_source": "wheel",
+    "wheel_sha256": "5ef8a2cddc2941c06f5f66174d2f8bfe8acaa6111dcf10ab53767d2ebf0b0ec9",
+    "websockets": "15.0.1",
+    "node": "v24.3.0",
+    "harness_sha256": {
+      "cluster.py": "a58e7911bc17212b1ac7bbc350da68cc96467282a1d62088207a9e449f20034d",
+      "cluster_peer.cjs": "84f58c605d6e32e23a445260757695028ffeaaec7f29c9a90af36f1a5efbea1c",
+      "product.py": "474a466949f5b361a88172fa17521cbe518f9385cb95985c629282ac566dd6a8",
+      "tests/group.py": "46aab58c8839a309d80f82c6f7ca7adb9a02e1fd27dd8ada799ca9cac4b8eaec",
+      "examples/group_chat.py": "a25ccebee85a577bfc0fb6b6875c6653df8a06be9f5a9230f6644cd7999ac2bc"
+    }
+  },
+  "phases": [
+    {
+      "phase": "member_fanout",
+      "sender": 0,
+      "recipients": [
+        1,
+        2
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "channel_isolation",
+      "sender": 1,
+      "recipients": [
+        0
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "nonmember_rejected",
+      "sender": 3,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "added_member_send",
+      "sender": 3,
+      "recipients": [
+        0,
+        1,
+        2
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "removed_js_member_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "removed_member_excluded",
+      "sender": 2,
+      "recipients": [
+        0,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "blacklisted_python_rejected",
+      "sender": 2,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "reconnected_nonmember_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "reconnected_blacklist_preserved",
+      "sender": 2,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "blacklist_removed_membership_preserved",
+      "sender": 2,
+      "recipients": [
+        0,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "readded_js_member_send",
+      "sender": 1,
+      "recipients": [
+        0,
+        2,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "blacklisted_js_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "js_blacklist_removed_send",
+      "sender": 1,
+      "recipients": [
+        0,
+        2,
+        3
+      ],
+      "reason": 1
+    }
+  ],
+  "exclusion_observation_ms": 1000,
+  "harness_revision": "9096631b6b812691cd5c5b1f6275aa7a6c68e55d",
+  "harness_worktree_dirty": false,
+  "initial_topology": {
+    "observed_utc": "2026-09-08T09:46:32.142991+00:00",
+    "total_slots": 12,
+    "slots": [
+      {
+        "slot_id": 1,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 2,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 3,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 4,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 5,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 6,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 7,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 8,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 9,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 10,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 11,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 12,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      }
+    ],
+    "active_tasks": 0
+  },
+  "startup_topology": {
+    "observed_utc": "2026-09-08T09:46:32.142991+00:00",
+    "total_slots": 12,
+    "slots": [
+      {
+        "slot_id": 1,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 2,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 3,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 4,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 5,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 6,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 7,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 8,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 9,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 10,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 2,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 2,
+          "preferred_leader_id": 2,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 11,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 1,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 1,
+          "preferred_leader_id": 1,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      },
+      {
+        "slot_id": 12,
+        "state": {
+          "quorum": "ready",
+          "sync": "matched",
+          "leader_match": true,
+          "leader_transfer_pending": false
+        },
+        "assignment": {
+          "desired_peers": [
+            1,
+            2,
+            3
+          ],
+          "preferred_leader_id": 3,
+          "config_epoch": 1,
+          "balance_version": 0
+        },
+        "runtime": {
+          "current_peers": [
+            1,
+            2,
+            3
+          ],
+          "current_voters": [
+            1,
+            2,
+            3
+          ],
+          "leader_id": 3,
+          "preferred_leader_id": 3,
+          "healthy_voters": 3,
+          "has_quorum": true,
+          "observed_config_epoch": 0,
+          "last_report_at": "2026-09-08T09:46:32.138039056Z"
+        }
+      }
+    ],
+    "active_tasks": 0
+  },
+  "startup_convergence_seconds": 0.006,
+  "connected_nodes": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "phase_times": {
+    "member_fanout": "2026-09-08T09:46:32.573510+00:00",
+    "channel_isolation": "2026-09-08T09:46:34.118084+00:00",
+    "nonmember_rejected": "2026-09-08T09:46:35.661074+00:00",
+    "added_member_send": "2026-09-08T09:46:36.717832+00:00",
+    "removed_js_member_rejected": "2026-09-08T09:46:37.780050+00:00",
+    "removed_member_excluded": "2026-09-08T09:46:38.785860+00:00",
+    "blacklisted_python_rejected": "2026-09-08T09:46:39.818767+00:00",
+    "reconnected_nonmember_rejected": "2026-09-08T09:46:42.326666+00:00",
+    "reconnected_blacklist_preserved": "2026-09-08T09:46:43.333636+00:00",
+    "blacklist_removed_membership_preserved": "2026-09-08T09:46:44.358662+00:00",
+    "readded_js_member_send": "2026-09-08T09:46:45.420727+00:00",
+    "blacklisted_js_rejected": "2026-09-08T09:46:46.457332+00:00",
+    "js_blacklist_removed_send": "2026-09-08T09:46:47.482272+00:00"
+  },
+  "cut_connections": [
+    2,
+    1,
+    1
+  ],
+  "reconnected_clients": 4,
+  "recovery_seconds": 1.505,
+  "duplicate_callbacks": 0,
+  "example": {
+    "send_recipients": 3,
+    "received": 1,
+    "rejection_code": 3,
+    "exit_code": 0
+  },
+  "example_process_running": false,
+  "offline_confirmed": true,
+  "matched_group_deliveries": 16,
+  "cleanup": {
+    "owned_processes_running": 0,
+    "proxy_connections": 0,
+    "extra_asyncio_tasks": 0,
+    "js_processes_running": 0
+  },
+  "elapsed_seconds": 21.945
+}

@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "started_at": "2026-09-08T09:01:40.528968+00:00",
+  "server_revision": "2a295e0d9881ef5356728a85d56b052c4b0d9c86",
+  "js_revision": "9c03c98c725982fac224cd1d3b52456eae983975",
+  "python_sdk_version": "0.1.0",
+  "python": "3.14.7",
+  "platform": "macOS-15.1-arm64-arm-64bit-Mach-O",
+  "server_sha256": "69897d1e6bd45d932346984f568647e8d528b01495fb37cc96ce879182024d5f",
+  "provenance": {
+    "package_source": "pypi",
+    "wheel_sha256": "d653a73537aa0ca66aa21eb4a6ab2f60bfc5b819e018f233a8a9c9502671cf48",
+    "websockets": "17.1",
+    "node": "v22.12.0",
+    "harness_sha256": {
+      "cluster.py": "d1af5f7ebbc913f44e7c19e85310a657e1e1d2c07ead4837fd182b23e10cf2a6",
+      "cluster_peer.cjs": "252df400c9b6a6fdf494583cc12da734078baecdca5f76b47f2c9d22611e52f9",
+      "product.py": "474a466949f5b361a88172fa17521cbe518f9385cb95985c629282ac566dd6a8",
+      "tests/group.py": "21251eaa960d9c3962e505880b1143955d0cf4d7bdca5e389528d860b8713690",
+      "examples/group_chat.py": "a25ccebee85a577bfc0fb6b6875c6653df8a06be9f5a9230f6644cd7999ac2bc"
+    }
+  },
+  "phases": [
+    {
+      "phase": "member_fanout",
+      "sender": 0,
+      "recipients": [
+        1,
+        2
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "channel_isolation",
+      "sender": 1,
+      "recipients": [
+        0
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "nonmember_rejected",
+      "sender": 3,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "added_member_send",
+      "sender": 3,
+      "recipients": [
+        0,
+        1,
+        2
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "removed_js_member_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "removed_member_excluded",
+      "sender": 2,
+      "recipients": [
+        0,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "blacklisted_python_rejected",
+      "sender": 2,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "reconnected_nonmember_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 3
+    },
+    {
+      "phase": "reconnected_blacklist_preserved",
+      "sender": 2,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "blacklist_removed_membership_preserved",
+      "sender": 2,
+      "recipients": [
+        0,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "readded_js_member_send",
+      "sender": 1,
+      "recipients": [
+        0,
+        2,
+        3
+      ],
+      "reason": 1
+    },
+    {
+      "phase": "blacklisted_js_rejected",
+      "sender": 1,
+      "recipients": [],
+      "reason": 4
+    },
+    {
+      "phase": "js_blacklist_removed_send",
+      "sender": 1,
+      "recipients": [
+        0,
+        2,
+        3
+      ],
+      "reason": 1
+    }
+  ],
+  "exclusion_observation_ms": 1000,
+  "harness_revision": "527f37c876326e7ad3cc48c89828c4c3ffed09fc",
+  "harness_worktree_dirty": false,
+  "connected_nodes": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "cut_connections": [
+    2,
+    1,
+    1
+  ],
+  "reconnected_clients": 4,
+  "recovery_seconds": 1.411,
+  "duplicate_callbacks": 0,
+  "example": {
+    "send_recipients": 3,
+    "received": 1,
+    "rejection_code": 3,
+    "exit_code": 0
+  },
+  "example_process_running": false,
+  "offline_confirmed": true,
+  "matched_group_deliveries": 16,
+  "cleanup": {
+    "owned_processes_running": 0,
+    "proxy_connections": 0,
+    "extra_asyncio_tasks": 0,
+    "js_processes_running": 0
+  },
+  "elapsed_seconds": 54.383
+}
