@@ -20,6 +20,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/WuKongIM/WuKongEasySDK-Python"
 Issues = "https://github.com/WuKongIM/WuKongEasySDK-Python/issues"
+Documentation = "https://docs.githubim.com/en/sdk/easy/python/getting-started"
 
 [dependency-groups]
 dev = [

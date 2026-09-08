@@ -1,28 +1,36 @@
 # WuKongEasySDK-Python
 
-[中文 README](README_zh.md)
+[中文 README](https://github.com/WuKongIM/WuKongEasySDK-Python/blob/main/README_zh.md)
 
 A typed Python 3.11+ `asyncio` client for WuKongIM's lightweight WebSocket
 JSON-RPC messaging path. It follows [WuKongEasySDK-JS 2.0.4](https://github.com/WuKongIM/WuKongEasySDK-JS/tree/9c03c98c725982fac224cd1d3b52456eae983975):
 CONNECT authentication, online SEND/SENDACK and RECV/RECVACK, JSON-RPC heartbeats,
 bounded reconnect, and custom event notifications. Supports WS and verified WSS.
 
-## Install from source
+## Install
 
-Project version: **0.1.0**. There is no PyPI release yet. Install from this repository:
+Install exact version **0.1.0** from [PyPI](https://pypi.org/project/wukong-easy-sdk/0.1.0/):
 
 ```sh
-git clone https://github.com/WuKongIM/WuKongEasySDK-Python.git
-cd WuKongEasySDK-Python
 python3 -m venv .venv
 # Windows PowerShell: .venv\Scripts\Activate.ps1
 source .venv/bin/activate
-python -m pip install .
+python -m pip install --index-url https://pypi.org/simple "wukong-easy-sdk==0.1.0"
 ```
 
-For repeatable deployments, check out the exact tested commit before installing.
 The distribution name is `wukong-easy-sdk`; the import is `wukong_easy_sdk`.
 Runtime dependency: `websockets>=15.0.1,<18`. `uv.lock` pins development dependencies.
+
+To run the interactive example with the installed package, download its matching source:
+
+```sh
+git clone --branch v0.1.0 --depth 1 https://github.com/WuKongIM/WuKongEasySDK-Python.git
+python WuKongEasySDK-Python/examples/chat.py
+```
+
+Supply `WKIM_UID`, `WKIM_TOKEN`, `WKIM_PEER`, and `WKIM_URL` through the environment.
+For a source installation, check out the exact tag or tested commit and run
+`python -m pip install ./WuKongEasySDK-Python`.
 
 ## Connect and send
 
@@ -157,5 +165,5 @@ uv run python tests/product.py --server /absolute/path/to/wukongim \
   --js-entry /absolute/path/to/WuKongEasySDK-JS/dist/cjs/index.js
 ```
 
-See [validation evidence](docs/VALIDATION.md) for exact tested revisions and limits,
-and [API migration from JS](docs/API.md) for the mapping.
+See [validation evidence](https://github.com/WuKongIM/WuKongEasySDK-Python/blob/main/docs/VALIDATION.md) for exact tested revisions and limits,
+and [API migration from JS](https://github.com/WuKongIM/WuKongEasySDK-Python/blob/v0.1.0/docs/API.md) for the mapping.
