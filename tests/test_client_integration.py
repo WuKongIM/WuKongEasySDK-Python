@@ -34,7 +34,10 @@ async def endpoint(handler, **kwargs):
 
     async with serve(bounded, "127.0.0.1", 0, ping_interval=None, **kwargs) as server:
         port = server.sockets[0].getsockname()[1]
-        yield f"{'wss' if 'ssl' in kwargs else 'ws'}://localhost:{port}/ws"
+        # Match the IPv4 listener. Windows localhost can try IPv6 first and spend
+        # the reconnect deadline on address fallback rather than SDK behavior.
+        host = "localhost" if "ssl" in kwargs else "127.0.0.1"
+        yield f"{'wss' if 'ssl' in kwargs else 'ws'}://{host}:{port}/ws"
 
 
 def client(url, **options):
