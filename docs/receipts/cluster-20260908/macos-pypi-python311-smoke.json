@@ -1,0 +1,177 @@
+{
+  "status": "passed",
+  "server_revision": "e7ef61ba702e045648b9fa535f051e5b2ee4a1db",
+  "js_revision": "9c03c98c725982fac224cd1d3b52456eae983975",
+  "python_sdk_version": "0.1.0",
+  "python": "3.11.12",
+  "platform": "macOS-15.1-arm64-arm-64bit",
+  "server_sha256": "a10329d35b697c1473bb91b7c342bcce428e0c0451581bb6383e17a8d9d1743e",
+  "requested_workload_seconds": 60,
+  "faults": [
+    {
+      "kind": "withheld_ack_and_transport_cut",
+      "recovery_seconds": 2.436,
+      "send_error": -5,
+      "receiver_deliveries": 1
+    },
+    {
+      "kind": "ingress_node_crash_restart",
+      "node_id": 1,
+      "recovery_seconds": 5.051
+    },
+    {
+      "kind": "backend_token_rotation",
+      "old_token_rejected_nodes": [
+        1,
+        2,
+        3
+      ],
+      "new_token_accepted_nodes": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "seconds": 0.231,
+      "python_harness": {
+        "rss_bytes": 136151040,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 52625408,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 179568640,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 187645952,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 186433536,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 30.121,
+      "python_harness": {
+        "rss_bytes": 38535168,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 54329344,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 250216448,
+          "fds": 72
+        },
+        {
+          "rss_bytes": 206438400,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 209633280,
+          "fds": 68
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seconds": 60.028,
+      "python_harness": {
+        "rss_bytes": 27770880,
+        "fds": 23
+      },
+      "js_peer": {
+        "rss_bytes": 49430528,
+        "fds": 15
+      },
+      "servers": [
+        {
+          "rss_bytes": 252411904,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 117751808,
+          "fds": 73
+        },
+        {
+          "rss_bytes": 103579648,
+          "fds": 69
+        }
+      ],
+      "asyncio_tasks": 19,
+      "proxy_connections": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "acknowledged_and_received": 1068,
+  "provenance": {
+    "package_source": "pypi",
+    "wheel_sha256": "d653a73537aa0ca66aa21eb4a6ab2f60bfc5b819e018f233a8a9c9502671cf48",
+    "websockets": "15.0.1",
+    "node": "v22.12.0",
+    "harness_sha256": {
+      "cluster.py": "f223bfe4688d3950db1c4c049f07cc3d71bb7f4c4f178b56eb81a9b685171624",
+      "cluster_peer.cjs": "28c6bacb80a53451f27525d3152e685ddc170d1f3d6721e6c279d76cae62dfc7",
+      "product.py": "474a466949f5b361a88172fa17521cbe518f9385cb95985c629282ac566dd6a8"
+    }
+  },
+  "connected_nodes": [
+    1,
+    2,
+    3
+  ],
+  "workload_seconds": 60.028,
+  "deliveries": {
+    "cluster-alice": {
+      "observed": 534,
+      "duplicates": 0
+    },
+    "cluster-carol": {
+      "observed": 268,
+      "duplicates": 0
+    },
+    "cluster-bob": {
+      "observed": 267,
+      "duplicates": 0
+    }
+  },
+  "errors": {
+    "cluster-alice": {
+      "-5": 6
+    },
+    "cluster-carol": {},
+    "js": 0
+  },
+  "offline_confirmed": true,
+  "cleanup": {
+    "owned_processes_running": 0,
+    "proxy_connections": 0,
+    "extra_asyncio_tasks": 0
+  },
+  "elapsed_seconds": 100.658
+}

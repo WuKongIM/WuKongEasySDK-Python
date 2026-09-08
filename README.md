@@ -167,3 +167,8 @@ uv run python tests/product.py --server /absolute/path/to/wukongim \
 
 See [validation evidence](https://github.com/WuKongIM/WuKongEasySDK-Python/blob/main/docs/VALIDATION.md) for exact tested revisions and limits,
 and [API migration from JS](https://github.com/WuKongIM/WuKongEasySDK-Python/blob/v0.1.0/docs/API.md) for the mapping.
+
+For independently installed packages, the [three-node WSS acceptance guide](docs/CLUSTER_ACCEPTANCE.md)
+covers Python/JS messaging, withheld ACKs, transport loss, node restart, Token
+rotation and a bounded 30/60-minute workload. This harness uses its own pinned
+source checkout, separately from the `v0.1.0` example tag.
